@@ -15,9 +15,9 @@ function ReasonSection() {
           </div>
           <div className="max-w-[700px]">
             <p className="text-center ">
-              FlashGenius is more than just flashcards - it's your personal
-              learning companion. With our cutting-edge AI technology, we're
-              transforming the way you absorb and retain information.
+              FlashGenius is more than just flashcards - it&apos;s your personal
+              learning companion. With our cutting-edge AI technology,
+              we&apos;re transforming the way you absorb and retain information.
             </p>
           </div>
         </div>
