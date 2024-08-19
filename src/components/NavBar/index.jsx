@@ -1,6 +1,7 @@
 "use client";
 import { vollkorn } from "@/app/layout";
 import { navItems } from "@/lib";
+import { UserButton, useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -8,6 +9,7 @@ import React from "react";
 function Navbar() {
   // Get pathname to style nav item differently
   const pathname = usePathname();
+  const { userId } = useAuth();
 
   return (
     <header>
@@ -31,6 +33,8 @@ function Navbar() {
                 >
                   {item.name}
                 </Link>
+              ) : userId ? (
+                <UserButton />
               ) : (
                 <div
                   key={item.name}

@@ -12,6 +12,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { BeatLoader } from "react-spinners";
 
 import { useAuth } from "@clerk/nextjs";
 import { collection, doc, getDoc, writeBatch } from "firebase/firestore";
@@ -19,20 +20,24 @@ import db from "../firebase";
 
 import { generate } from "@/actions";
 import toast from "react-hot-toast";
+import { Button } from "@/components/ui/button";
 
 function GenerateFlashCard() {
   const { userId } = useAuth();
+  const [isLoading, setIsLoading] = useState(false);
   const [flashcards, setFlashcard] = useState([]);
   const [prompt, setPrompt] = useState("");
   const [name, setName] = useState("");
   const [dialog, setDialog] = useState(false);
 
   const fetchFlashCards = async () => {
+    setIsLoading(true);
     const result = await generate(prompt);
 
     setFlashcard(result);
 
     setPrompt("");
+    setIsLoading(false);
   };
 
   const handleSaveCollection = async () => {
@@ -69,6 +74,17 @@ function GenerateFlashCard() {
       setDialog(false);
       setName("");
       toast.success("Flashcards saved successfully!");
+      toast((t) => (
+        <span>
+          Go to{" "}
+          <a
+            className="underline text-blue-500 hover:text-blue-500/30 active:bg-red-500"
+            href="/collection"
+          >
+            Collection
+          </a>
+        </span>
+      ));
     } catch (error) {
       console.error("Error saving flashcards:", error);
       toast.error(
@@ -94,12 +110,16 @@ function GenerateFlashCard() {
                 onChange={(e) => setPrompt(e.target.value)}
               />
 
-              <button
+              <Button
                 onClick={fetchFlashCards}
-                className="bg-black text-white p-3 w-full rounded-lg font-semibold active:bg-[#1b1f24]"
+                className="bg-black  p-3 w-full rounded-lg font-semibold"
               >
-                Generate FlashCards
-              </button>
+                {isLoading ? (
+                  <BeatLoader color="#FFF" />
+                ) : (
+                  "Generate FlashCards"
+                )}
+              </Button>
             </div>
           </div>
 
@@ -117,12 +137,12 @@ function GenerateFlashCard() {
           {flashcards.length > 0 ? (
             <Dialog open={dialog} onOpenChange={setDialog}>
               <DialogTrigger>
-                <button
+                <Button
                   onClick={() => setDialog(true)}
-                  className="bg-black text-white p-3 w-fit rounded-lg font-semibold active:bg-[#1b1f24]"
+                  className="bg-black  p-3 w-fit rounded-lg font-semibold]"
                 >
                   Create FlashCard Collection
-                </button>
+                </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-md">
                 <DialogHeader>
@@ -144,7 +164,7 @@ function GenerateFlashCard() {
                     onClick={handleSaveCollection}
                     className="p-2 bg-black text-white w-fit rounded-lg"
                   >
-                    Save
+                    {isLoading ? <BeatLoader color="#FFF" /> : "Save"}
                   </button>
                 </div>
                 <DialogFooter className="sm:justify-start">

@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import toast from "react-hot-toast";
 
 function PriceCard({ name, price, features, forWho, link }) {
   return (
@@ -24,7 +26,7 @@ function PriceCard({ name, price, features, forWho, link }) {
       <div className="space-y-3">
         <p className="italic text-sm">{forWho}</p>
         <button className="bg-black text-white p-2 rounded-lg text-base">
-          Try now!
+          Coming Soon!
         </button>
       </div>
     </div>

@@ -1,15 +1,15 @@
 export const navItems = [
   {
+    name: "Create",
+    link: "/generate",
+  },
+  {
     name: "Collection",
     link: "/collection",
   },
   {
-    name: "About",
-    link: "#",
-  },
-  {
     name: "Pricing",
-    link: "#pricing",
+    link: "/#pricing",
   },
   {
     name: "Get Started",
