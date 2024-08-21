@@ -17,7 +17,7 @@ function FlashCard({
 
   return (
     <div
-      className={`relative mx-auto flex flex-col justify-center items-center gap-5 w-[full] h-[300px] md:w-[70vw] md:h-[75vh] rounded-3xl ${otherClassName}  shadow-xl shadow-black/40 p-3`}
+      className={`relative mx-auto flex flex-col justify-center items-center gap-5 min-w-[330px] w-[full] h-[300px] md:w-[70vw] md:h-[75vh] rounded-3xl ${otherClassName}  shadow-xl shadow-black/40 p-3`}
     >
       <div className="flex flex-col justify-center items-center">
         <p className="text-lg md:text-xl text-black text-center">

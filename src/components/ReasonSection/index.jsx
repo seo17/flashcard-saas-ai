@@ -24,12 +24,12 @@ function ReasonSection() {
 
         {/* CTA Buttons  */}
         <div className="flex flex-row gap-5 items-center justify-center">
-          <div className="bg-white flex flex-row justify-center items-center p-3 rounded-lg">
+          <div className="w-fit bg-white flex flex-row justify-center items-center p-3 rounded-lg">
             <Link
               href={"/sign-in"}
               className="text-black text-base font-semibold"
             >
-              Start your FlashGenius Journey today
+              Start Now
             </Link>
           </div>
         </div>
