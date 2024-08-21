@@ -59,7 +59,7 @@ function FlashCardPage() {
   console.log("Flashcard state obj", flashcards[index]);
 
   return (
-    <div className="px-12 py-8 w-full flex flex-row justify-center items-center ">
+    <div className="px-5 md:px-12 py-8 w-full h-[80vh] md:h-[90vh] flex flex-row justify-center items-center ">
       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
         <FlashCard
           position={"front"}

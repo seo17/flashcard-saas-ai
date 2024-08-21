@@ -96,9 +96,9 @@ function GenerateFlashCard() {
   return (
     <main>
       <section>
-        <div className="flex flex-col items-center justify-center px-12 gap-3 pb-10">
-          <div className="w-full flex flex-col gap-3 justify-center items-center">
-            <div className="h-[300px] w-[600px]">
+        <div className="flex flex-col items-center justify-center px-5 md:px-12 gap-3 pb-10">
+          <div className="w-full flex flex-col gap-y-5 md:gap-3 justify-center items-center">
+            <div className="max-h-[300px] max-w-[600px]">
               <textarea
                 style={{ resize: "none" }}
                 cols={30}
@@ -123,7 +123,7 @@ function GenerateFlashCard() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 grid-flow-row">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 grid-flow-row">
             {flashcards.length > 0 &&
               flashcards.map((item, index) => (
                 <FlashCardPreview
@@ -180,7 +180,7 @@ function GenerateFlashCard() {
               </DialogContent>
             </Dialog>
           ) : (
-            <p className="text-4xl text-black/20">
+            <p className="text-center md:text-2xl lg:text-3xl text-black/20">
               Create a new FlashCard Collection with AI
             </p>
           )}

@@ -5,7 +5,7 @@ import FeatureCard from "../FeatureCard";
 function Features() {
   return (
     <section>
-      <div className="w-full flex flex-row items-center justify-between gap-10 px-12 pb-[50px]">
+      <div className="w-full flex flex-col md:flex-row items-center justify-between gap-10 px-5 md:px-12 pb-[50px]">
         {features.map((item) => (
           <FeatureCard
             key={item.name}

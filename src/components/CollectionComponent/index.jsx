@@ -34,20 +34,25 @@ function CollectionComponent() {
   return (
     <main>
       <section>
-        <div className="w-full max-h-screen flex flex-col items-center justify-center py-8 px-12">
-          <div className="w-full flex flex-row justify-between items-end">
-            <p className="font-bold text-2xl">Flashcards Collection</p>
-            <Button onClick={() => router.push("/generate")} className="w-fit">
+        <div className="w-full flex flex-col items-center justify-center py-8 px-5 md:px-12">
+          <div className="w-full flex flex-col sm:flex-row justify-between items-center">
+            <p className="text-center font-bold text-lg md:text-2xl">
+              Flashcards Collection
+            </p>
+            <Button
+              onClick={() => router.push("/generate")}
+              className="w-full sm:w-fit"
+            >
               <Plus />{" "}
-              <span className="ml-2 font-semibold">Create Flashcards</span>
+              <span className="ml-2 sm:font-semibold">Create Flashcards</span>
             </Button>
           </div>
 
           <hr className="h-px bg-black/70 border-0 w-full mt-2 mb-5" />
 
-          <div className="w-full flex flex-col items-center justify-center gap-3 pb-10">
+          <div className="w-full h-[100vh] flex flex-col items-center gap-3 pb-20 md:pb-10 ">
             {flashCardCollections.length > 0 ? (
-              <div className="w-full grid grid-cols-4 gap-4 grid-flow-row">
+              <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4 grid-flow-cols">
                 {flashCardCollections.map((item, index) => (
                   <CollectionCard
                     key={index}

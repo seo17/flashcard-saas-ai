@@ -5,7 +5,7 @@ import { plans } from "@/lib";
 function Pricing() {
   return (
     <section id="pricing">
-      <div className="flex flex-col px-12 items-center gap-10 justify-center text-black pt-10 ">
+      <div className="flex flex-col md:flex-row px-5 md:px-12 items-center gap-10 justify-center text-black pt-10 ">
         {plans.map((item) => (
           <PriceCard
             key={item.name}
